@@ -3,10 +3,15 @@ import React, { Component } from 'react';
 class Counter extends Component {
     state = {
         count : 0,
-        items :["Mobile", "Watch", "Laptop", "Bag"]
+        items :[]
       } 
+    getItemsList(){
+        if (this.state.items.length === 0) return <p>There is no Items!</p>;
+        return <ul>{this.state.items.map(item => <li key={item}>{item} </li>)}</ul>;
+    }
     render() { 
         const { count } = this.state
+        
 
         return (
             <div>
@@ -21,9 +26,12 @@ class Counter extends Component {
                 <span className={this.getBadgeClasses()}>  </span>
                 <button className='btn btn-success btn-sm rounded-pill'> add +</button>
 
-                <ul>
-                    {this.state.items.map(item => <li>{item} </li>)} 
-                </ul>
+
+                {/* Rendering the itemlist */}
+                { this.getItemsList() }
+                {/* ------------OR--------------- */}
+                { this.state.items.length === 0 && "There is no items present!"}
+                
             </div>
         );
     }
