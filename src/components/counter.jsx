@@ -5,24 +5,30 @@ class Counter extends Component {
         count : 0,
         items :["Mobile", "Watch", "Laptop", "Bag"]
       } 
+
+    handleIncremet = () =>{
+        // this.state.count++; /* will not work */
+        this.setState({count: this.state.count + 1})
+        console.log(this.state.count);
+    }
     render() { 
         const { count } = this.state
 
         return (
             <div>
-                <button type="button" class="btn btn-primary m-3 position-relative ">
+                <button type="button" className="btn btn-primary m-3 position-relative ">
                     Cart
-                    <span class={this.getBadgeClasses()}>
+                    <span className={this.getBadgeClasses()}>
                         {count === 0 ? '' : count}
-                        <span class="visually-hidden">unread messages</span>
+                        <span className="visually-hidden">unread messages</span>
                     </span>
                 </button>
 
                 <span className={this.getBadgeClasses()}>  </span>
-                <button className='btn btn-success btn-sm rounded-pill'> add +</button>
+                <button onClick={this.handleIncremet} className='btn btn-success btn-sm rounded-pill'> add +</button>
 
                 <ul>
-                    {this.state.items.map(item => <li>{item} </li>)} 
+                    {this.state.items.map(item => <li key={item}>{item} </li>)} 
                 </ul>
             </div>
         );
