@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = {
-        count : 2
+        count : 0,
+        items :["Mobile", "Watch", "Laptop", "Bag"]
       } 
     render() { 
         const { count } = this.state
@@ -19,6 +20,10 @@ class Counter extends Component {
 
                 <span className={this.getBadgeClasses()}>  </span>
                 <button className='btn btn-success btn-sm rounded-pill'> add +</button>
+
+                <ul>
+                    {this.state.items.map(item => <li>{item} </li>)} 
+                </ul>
             </div>
         );
     }
