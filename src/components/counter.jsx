@@ -7,10 +7,10 @@ class Counter extends Component {
       } 
 
     handleIncremet = () =>{
-        // this.state.count++; /* will not work */
         this.setState({count: this.state.count + 1})
-        console.log(this.state.count);
     }
+
+    
     render() { 
         const { count } = this.state
 
