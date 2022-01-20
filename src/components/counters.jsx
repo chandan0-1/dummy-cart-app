@@ -3,7 +3,6 @@ import Counter from "./counter"
 
 class Counters extends Component {
     state = { 
-        counters
      } 
     render() { 
         return (
