@@ -10,6 +10,11 @@ class Counter extends Component {
         // this.setState({count: this.state.count + 1})
         this.setState({value : this.state.value + 1})
     }
+    handleDecrement = () =>{
+        if (this.state.value > 0){
+            this.setState({ value : this.state.value - 1})
+        }
+    }
 
     
     render() { 
@@ -27,6 +32,7 @@ class Counter extends Component {
 
                 <span className={this.getBadgeClasses()}>  </span>
                 <button onClick={this.handleIncremet} className='btn btn-success btn-sm rounded-pill'> ADD + </button>
+                <button onClick={this.handleDecrement} className='btn btn-dark btn-sm m-2'> - </button>
                 <button onClick={() => this.props.onDel(this.props.counter.id)} className="btn btn-sm btn-danger m-2 ">X</button>
                 {/* <ul>
                     {this.state.items.map(item => <li key={item}>{item} </li>)} 
